@@ -1,31 +1,33 @@
 ##############################
 #### LOADING LIB AND DATA ####
 ##############################
-package.install = function(pack) {
-  local({r <- getOption("repos");r["CRAN"] <- "http://cran.r-project.org"; options(repos=r)})
+# package.install = function(pack) {
+#   local({r <- getOption("repos");r["CRAN"] <- "http://cran.r-project.org"; options(repos=r)})
+# 
+#   # name of package to install / load
+#   pack = pack
+# 
+#   if (pack %in% rownames(installed.packages())) {
+#     library(pack, character.only=T)
+#   } else {
+#     if (pack %in% rownames(installed.packages(lib.loc='/blue/jantonelli/emmett.kendall/Packages/R_4_0'))) {
+#       library(pack, lib.loc='/blue/jantonelli/emmett.kendall/Packages/R_4_0', character.only=T)
+#     } else {
+#       install.packages(pack, lib='/blue/jantonelli/emmett.kendall/Packages/R_4_0')
+#       library(pack, lib.loc='/blue/jantonelli/emmett.kendall/Packages/R_4_0', character.only=T)
+#     }
+#   }
+# }
+# 
+# package.install("mvtnorm")
+# package.install("rgeos") # has the gBuffer package
+# package.install("tidyverse")
+# library(RColorBrewer) #aesthetic colors for plots
+# library(rgdal)
 
-  # name of package to install / load
-  pack = pack
+library(mvtnorm); library(rgeos); library(tidyverse)
 
-  if (pack %in% rownames(installed.packages())) {
-    library(pack, character.only=T)
-  } else {
-    if (pack %in% rownames(installed.packages(lib.loc='/blue/jantonelli/emmett.kendall/Packages/R_4_0'))) {
-      library(pack, lib.loc='/blue/jantonelli/emmett.kendall/Packages/R_4_0', character.only=T)
-    } else {
-      install.packages(pack, lib='/blue/jantonelli/emmett.kendall/Packages/R_4_0')
-      library(pack, lib.loc='/blue/jantonelli/emmett.kendall/Packages/R_4_0', character.only=T)
-    }
-  }
-}
-
-package.install("mvtnorm")
-package.install("rgeos") # has the gBuffer package
-package.install("tidyverse")
-#library(RColorBrewer) #aesthetic colors for plots
-#library(rgdal)
-
-load("Data/nycSub.RData")
+load("~/Desktop/Research/UF/2021/NYC_Methods/Simulation/Data/nycSub.RData")
 set.seed(100)
 
 #create data frame of grid points
