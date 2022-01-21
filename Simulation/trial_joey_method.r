@@ -12,7 +12,7 @@ library("raster")
 surface_type = c("uniform", "hotspot", "cov_r")
 folder_type <- c("Flat_area", "HotSpot_area", "Random_area")
 
-for (s_name in 2:3) {
+for (s_name in 1:3) {
 
   Dir = paste0('~/Desktop/Research/UF/2021/NYC_Methods/Simulation/Results/Investigation/',
                 surface_type[s_name])
