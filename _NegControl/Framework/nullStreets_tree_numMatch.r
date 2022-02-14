@@ -3,7 +3,7 @@ library("sf")
 library("rgeos")
 library("raster")
 
-match_count <- seq(10, 500, by = 10)
+match_count <- 150
 load("../Data/indexList_MAIN.RData")
 
 set.seed(10)
@@ -27,6 +27,7 @@ for (k in 2:13) {
     wRatioOk = which(combinedMatchingSetupFix$ratioArea / combinedMatchingSetupFix$ratioStreet < 1.4 &
                        combinedMatchingSetupFix$ratioArea / combinedMatchingSetupFix$ratioStreet > 1/1.4)
     combinedMatchingSetupFix2 = combinedMatchingSetupFix[wRatioOk,]
+    # combinedMatchingSetupFix2 = combinedMatchingSetupFix
 
     v1 = sd(combinedMatchingSetupFix2$area1 + combinedMatchingSetupFix2$area2, na.rm=TRUE)^2
     v2 = sd(combinedMatchingSetupFix2$ratioArea, na.rm=TRUE)^2
@@ -66,18 +67,18 @@ for (k in 2:13) {
     }
 }
 
-save(p_val_df, file = paste0("../Output/combination/p_val_df.dat"))
-save(perc_pval_match, file = paste0("../Output/combination/perc_pval_match.dat"))
+save(p_val_df, file = paste0("../Output/trial/p_val_df.dat"))
+save(perc_pval_match, file = paste0("../Output/trial/perc_pval_match.dat"))
 
 # ---------------------------------------------------------------
 # ------- Plotting everything
 # ---------------------------------------------------------------
 
-load("../Output/combination/perc_pval_match.dat")
+load("../Output/trial/perc_pval_match.dat")
 final_plot = perc_pval_match
 plot_mat = perc_pval_match
 
-pdf('../Output/Plots/pVal_num_match.pdf')
+pdf('../Output/trial/pVal_num_match.pdf')
 par(mfrow=c(3,1))
 for (i in 2:13) {
     print(i)
