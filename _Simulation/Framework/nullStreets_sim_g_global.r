@@ -9,78 +9,88 @@ surface_type = c("hotspot", "uniform", "cov_r")
 save_type = c("HotSpot/", "Uniform/", "Random/")
 folder_type <- c("HotSpot_combine", "Uniform_combine", "Random_combine")
 
-set.seed(20)
+trialNum = 10 # this is what we are going to test things on
+# trialNum = as.numeric(Sys.getenv('SLURM_ARRAY_TASK_ID')) # 1-100
+set.seed(trialNum)
 
-global_null = vector(mode = "list", length = 3)
+# Step Outline -----------------------------------------------------------------
+# Step 1: save all the matches in the global_null list for each surface
+# Step 2: iterate through and grab the max
+# Step 3: get a p-value for each surface and each iterate for each buffer width
+# Step 4: look at the distribution of p-values across all 100 iterates
+# ------------------------------------------------------------------------------
+
+# Step 1 -----------------------------------------------------------------------
 
 for (s_name in 1:3) {
     # Run this for the different surface types
-    global_null[[s_name]] = vector(mode = "list", length = 13)
+    global_null = vector(mode = "list", length = 13)
+
+    load(paste0("../Output/", folder_type[s_name], "/combinedMatchingSetup", trialNum, ".dat"))
+
+    load(paste0('../Output/sim_orig/', save_type[s_name], "/sim_master_", trialNum,".dat"))
 
     for (k in 2:13) {
         # We need a global test for each buffer width
-        global_null[[s_name]][[k]] = data.frame("max_t_stat" = c(),
-                                                "prec_loc" = c())
+        print(paste0(s_name, " ", k))
+        n_matches = 150
+        global_null[[k]] = matrix(nrow = max(indexList_MAIN), ncol = n_matches)
 
-        for (trialNum in 1:100) {
-            # This is the repetition to get the null distribution
-            
-            temp_max = rep(NA, length(trialNum))
-            temp_loc = rep(NA, length(trialNum))
-            myInd = 1
+        ## Now remove data points where these ratios are much different
+        # wRatioOk = which(comboInfo[[k]]$ratioArea / comboInfo[[k]]$ratioStreet < 1.4 &
+        #                 comboInfo[[k]]$ratioArea / comboInfo[[k]]$ratioStreet > 1/1.4)
+        # combinedMatchingSetupFix2 = comboInfo[[k]][wRatioOk,]
+        combinedMatchingSetupFix2 = comboInfo[[k]]
 
-            load(paste0("../Output/", folder_type[s_name], "/combinedMatchingSetup", trialNum, ".dat"))
+        v1 = sd(combinedMatchingSetupFix2$area1 + combinedMatchingSetupFix2$area2, na.rm=TRUE)^2
+        v2 = sd(combinedMatchingSetupFix2$ratioArea, na.rm=TRUE)^2
 
-            load(paste0('../Output/sim_orig/', save_type[s_name], "/sim_master_", trialNum,".dat"))
+        for(ii in indexList_MAIN) {
+            area_temp = sim_master[[k]]$area1[ii] + sim_master[[k]]$area2[ii]
+            ratio_temp = max(sim_master[[k]]$area1[ii] / sim_master[[k]]$area2[ii],
+                            sim_master[[k]]$area2[ii] / sim_master[[k]]$area1[ii])
+            stat_temp = sim_master[[k]]$tStats_area[ii]
 
-            ## Now remove data points where these ratios are much different
-            wRatioOk = which(comboInfo[[k]]$ratioArea / comboInfo[[k]]$ratioStreet < 1.4 &
-                            comboInfo[[k]]$ratioArea / comboInfo[[k]]$ratioStreet > 1/1.4)
-            combinedMatchingSetupFix2 = comboInfo[[k]][wRatioOk,]
+            dist_temp = sqrt(((area_temp - (combinedMatchingSetupFix2$area1 + combinedMatchingSetupFix2$area2))^2/v1) +
+                                ((ratio_temp - combinedMatchingSetupFix2$ratioArea)^2 / v2))
 
-            v1 = sd(combinedMatchingSetupFix2$area1 + combinedMatchingSetupFix2$area2, na.rm=TRUE)^2
-            v2 = sd(combinedMatchingSetupFix2$ratioArea, na.rm=TRUE)^2
+            w50 = order(dist_temp)[1:n_matches]
 
-            for(ii in indexList_MAIN) {
-                area_temp = sim_master[[k]]$area1[ii] + sim_master[[k]]$area2[ii]
-                ratio_temp = max(sim_master[[k]]$area1[ii] / sim_master[[k]]$area2[ii],
-                                sim_master[[k]]$area2[ii] / sim_master[[k]]$area1[ii])
-                stat_temp = sim_master[[k]]$tStats_area[ii]
+            null_dist = combinedMatchingSetupFix2$tStat_area[w50]
 
-                dist_temp = sqrt(((area_temp - (combinedMatchingSetupFix2$area1 + combinedMatchingSetupFix2$area2))^2/v1) +
-                                    ((ratio_temp - combinedMatchingSetupFix2$ratioArea)^2 / v2))
-
-
-                w50 = order(dist_temp)[1:150]
-
-                null_dist = combinedMatchingSetupFix2$tStat_area[w50]
-                rand_ind = sample(c(1:150), 1)
-
-                temp_loc[myInd] = ii
-                temp_max[myInd] = null_dist[rand_ind]
-                myInd = myInd + 1
-            }
-
-            global_null[[s_name]][[k]]$max_t_stat[trialNum] = max(temp_max)
-            global_null[[s_name]][[k]]$prec_loc[trialNum] = 
-                                temp_loc[which(temp_max == max(temp_max))]
+            global_null[[k]][ii,] = null_dist
         }
 
     }
 
+    save(global_null, file = paste0("../Output/Global/", save_type[s_name],
+                                    "global_null_", trialNum, ".dat"))
 }
 
-global_p_val <- vector(mode = "list", length = 3)
+# Step 2 -----------------------------------------------------------------------
 
-for (s_name in 1:3) {
+# global_p_val <- vector(mode = "list", length = 3)
 
-    global_p_val[[s_name]] = rep(NA, 13)
+# for (s_name in 1:3) {
 
-    for(k in 2:13) {
-        load(paste0("../Output/sim_orig/"))
-    }
+#     global_p_val[[s_name]] = data.frame("t_stat" = c(),
+#                                         "loc" = c(),
+#                                         "p_val" = c())
+    
+#     load(paste0('../Output/sim_orig/', save_type[s_name], "/sim_master_", trialNum,".dat"))
+    
+#     for(k in 2:13) {
+#         t_stat = max(sim_master[[k]]$tStats_area, na.rm = T)
+#         loc = which(sim_master[[k]]$tStats_area == t_stat)
 
-}
+#         p_val = mean(global_null[[k]]$max_t_stat > t_stat)
+#         global_p_val[[s_name]][k,] = c(t_stat, loc, p_val)
+#     }
+
+# }
+
+
+# save(global_p_val, file = paste0("../Output/Global/global_p_val_", trialNum, ".dat"))
 
 # ------------------------------------------------------------------------------
 # ######################
@@ -194,3 +204,34 @@ for (s_name in 1:3) {
   
 #   unadjPVal200 = data.frame("p" = unlist(ALL_PVAL_BY_WIDTH_PAIR[[20]]))
 # }
+
+# for (rep in 1:1000) {
+#             # This is the repetition to get the null distribution
+#             print(rep)
+#             temp_max = rep(NA, length(indexList_MAIN))
+#             temp_loc = rep(NA, length(indexList_MAIN))
+#             myInd = 1
+
+#             for(ii in indexList_MAIN) {
+#                 area_temp = sim_master[[k]]$area1[ii] + sim_master[[k]]$area2[ii]
+#                 ratio_temp = max(sim_master[[k]]$area1[ii] / sim_master[[k]]$area2[ii],
+#                                 sim_master[[k]]$area2[ii] / sim_master[[k]]$area1[ii])
+#                 stat_temp = sim_master[[k]]$tStats_area[ii]
+
+#                 dist_temp = sqrt(((area_temp - (combinedMatchingSetupFix2$area1 + combinedMatchingSetupFix2$area2))^2/v1) +
+#                                     ((ratio_temp - combinedMatchingSetupFix2$ratioArea)^2 / v2))
+
+#                 w50 = order(dist_temp)[1:150]
+
+#                 null_dist = combinedMatchingSetupFix2$tStat_area[w50]
+#                 rand_ind = sample(c(1:150), 1)
+
+#                 temp_loc[myInd] = ii
+#                 temp_max[myInd] = null_dist[rand_ind]
+#                 myInd = myInd + 1
+#             }
+
+#             global_null[[k]]$max_t_stat[rep] = max(temp_max)
+#             global_null[[k]]$prec_loc[rep] = 
+#                                 temp_loc[which(temp_max == max(temp_max))]
+#         }
