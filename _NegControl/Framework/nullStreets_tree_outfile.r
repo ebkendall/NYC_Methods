@@ -114,9 +114,10 @@ for (k in 2:13) {
     load(paste0("../Output/combination/sim_orig_", k, ".dat"))
 
     ## Now remove data points where these ratios are much different
-    wRatioOk = which(combinedMatchingSetupFix$ratioArea / combinedMatchingSetupFix$ratioStreet < 1.4 &
-                       combinedMatchingSetupFix$ratioArea / combinedMatchingSetupFix$ratioStreet > 1/1.4)
-    combinedMatchingSetupFix2 = combinedMatchingSetupFix[wRatioOk,]
+    # wRatioOk = which(combinedMatchingSetupFix$ratioArea / combinedMatchingSetupFix$ratioStreet < 1.4 &
+    #                    combinedMatchingSetupFix$ratioArea / combinedMatchingSetupFix$ratioStreet > 1/1.4)
+    # combinedMatchingSetupFix2 = combinedMatchingSetupFix[wRatioOk,]
+    combinedMatchingSetupFix2 = combinedMatchingSetupFix
 
     v1 = sd(combinedMatchingSetupFix2$area1 + combinedMatchingSetupFix2$area2, na.rm=TRUE)^2
     v2 = sd(combinedMatchingSetupFix2$ratioArea, na.rm=TRUE)^2
@@ -134,10 +135,20 @@ for (k in 2:13) {
         dist_temp = sqrt(((area_temp - (combinedMatchingSetupFix2$area1 + combinedMatchingSetupFix2$area2))^2/v1) +
                            ((ratio_temp - combinedMatchingSetupFix2$ratioArea)^2 / v2))
 
-        w50 = order(dist_temp)[1:150]
+        w50 = order(dist_temp)[1:200]
 
         null_dist = combinedMatchingSetupFix2$tStat_area[w50]
-        pval[ii] = mean(null_dist > stat_temp)
+        
+        test = density(null_dist, bw = "ucv")
+        xx = test$x
+        yy = test$y
+        dx <- xx[2L] - xx[1L]
+        C <- sum(yy) * dx
+        
+        p.unscaled <- sum(yy[xx >= stat_temp]) * dx
+        p.scaled <- p.unscaled / C
+        
+        pval[ii] = p.scaled
       }
     }
 
