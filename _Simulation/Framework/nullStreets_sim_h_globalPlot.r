@@ -1,11 +1,9 @@
-library("sp")
-library("sf")
-library("rgeos")
-library("raster")
-
 load("../Data/indexList_MAIN.RData")
 
-save_type = c("HotSpot/", "Uniform/", "Random/")
+args = commandArgs(TRUE)
+n_matches = as.numeric(args[1])
+
+save_type = c("HotSpot/", "Uniform/", "Random/") 
 
 # Step 3 -----------------------------------------------------------------------
 
@@ -34,7 +32,7 @@ for (trialNum in 1:100) {
     }
 }
 
-pdf("../Output/Plots/pValGlobal.pdf")
+pdf(paste0("../Output/Plots/pValGlobal_", n_matches, ".pdf"))
 par(mfrow=c(2,3))
 for (i in 2:13) {
   for(k in 1:3) {
