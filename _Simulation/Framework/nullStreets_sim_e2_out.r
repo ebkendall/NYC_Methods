@@ -159,10 +159,12 @@ for (k in 2:13) {
     load(paste0(Dir, "/sim_master_", trialNum,".dat"))
 
     ## Now remove data points where these ratios are much different
-    wRatioOk = which(comboInfo[[k]]$ratioArea / comboInfo[[k]]$ratioStreet < 1.4 &
-                       comboInfo[[k]]$ratioArea / comboInfo[[k]]$ratioStreet > 1/1.4)
-    combinedMatchingSetupFix2 = comboInfo[[k]][wRatioOk,]
+    # wRatioOk = which(comboInfo[[k]]$ratioArea / comboInfo[[k]]$ratioStreet < 1.4 &
+    #                    comboInfo[[k]]$ratioArea / comboInfo[[k]]$ratioStreet > 1/1.4)
+    # combinedMatchingSetupFix2 = comboInfo[[k]][wRatioOk,]
 
+    combinedMatchingSetupFix2 = comboInfo[[k]]
+    
     v1 = sd(combinedMatchingSetupFix2$area1 + combinedMatchingSetupFix2$area2, na.rm=TRUE)^2
     v2 = sd(combinedMatchingSetupFix2$ratioArea, na.rm=TRUE)^2
 
@@ -182,7 +184,18 @@ for (k in 2:13) {
         w50 = order(dist_temp)[1:150]
 
         null_dist = combinedMatchingSetupFix2$tStat_area[w50]
-        pval[ii] = mean(null_dist > stat_temp)
+
+        test = density(null_dist, bw = "ucv")
+        xx = test$x
+        yy = test$y
+        dx <- xx[2L] - xx[1L]
+        C <- sum(yy) * dx
+        
+        p.unscaled <- sum(yy[xx >= stat_temp]) * dx
+        p.scaled <- p.unscaled / C
+        
+        
+        pval[ii] = p.scaled
       }
     }
 

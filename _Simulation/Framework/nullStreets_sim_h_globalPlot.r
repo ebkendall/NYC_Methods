@@ -38,7 +38,7 @@ for (i in 2:13) {
   for(k in 1:3) {
     print(paste0(i, " ", k))
     pval = p_val_df[[i]][,k]
-    hist(pval, main = paste0(save_type[k], ": pVal for B", i*100),
+    hist(pval, breaks = sqrt(length(pval)), main = paste0(save_type[k], ": pVal for B", i*100),
          xlab = paste0("Perc. < 0.05 is ",  round(mean(pval < 0.05, na.rm=TRUE), 4)),
          xlim=c(0,1))
   }
