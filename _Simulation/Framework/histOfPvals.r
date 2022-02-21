@@ -1,8 +1,8 @@
-load("../Output/sim_orig/p_val_df_1.dat")
+load("../Output/sim_orig/p_vals/p_val_df_1.dat")
 final_hist = p_val_df
 
 for (i in 1:100) {
-    load(paste0("../Output/sim_orig/p_val_df_", i, ".dat"))
+    load(paste0("../Output/sim_orig/p_vals/p_val_df_", i, ".dat"))
     for(j in 1:3) {
         for(k in 2:13) {
             final_hist[[j]][[k]] = c(final_hist[[j]][[k]], p_val_df[[j]][[k]])
@@ -12,7 +12,7 @@ for (i in 1:100) {
 
 folder_type = c("HotSpot", "Uniform", "Random")
 
-pdf("../Output/Plots/pValHistTotal.pdf")
+pdf("../Output/Plots/pValHistTotal_kernel_moreFilter.pdf")
 par(mfrow=c(2,3))
 for (i in 2:13) {
   for(k in 1:3) {

@@ -24,15 +24,26 @@ for (trialNum in 1:100) {
         for(k in 2:13) {
             t_stat = max(sim_master[[k]]$tStats_area, na.rm = T)
             loc = which(sim_master[[k]]$tStats_area == t_stat)
+            
+            test = density(global_t_stat[[k]]$max_t_stat, bw = "ucv")
+            xx = test$x
+            yy = test$y
+            dx <- xx[2L] - xx[1L]
+            C <- sum(yy) * dx
 
-            p_val = mean(global_t_stat[[k]]$max_t_stat > t_stat)
-            p_val_df[[k]][trialNum, s_name] = p_val
+            p.unscaled <- sum(yy[xx >= t_stat]) * dx
+            p.scaled <- p.unscaled / C
+            
+            # pval[ii] = p.scaled
+
+            # p_val = mean(global_t_stat[[k]]$max_t_stat > t_stat)
+            p_val_df[[k]][trialNum, s_name] = p.scaled
         }
 
     }
 }
 
-pdf(paste0("../Output/Plots/pValGlobal_", n_matches, ".pdf"))
+pdf(paste0("../Output/Plots/pValGlobal_kernel_", n_matches, ".pdf"))
 par(mfrow=c(2,3))
 for (i in 2:13) {
   for(k in 1:3) {

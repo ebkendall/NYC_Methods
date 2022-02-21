@@ -4,7 +4,7 @@ surface_type = c("hotspot", "uniform", "cov_r")
 save_type = c("HotSpot/", "Uniform/", "Random/")
 folder_type <- c("HotSpot_combine", "Uniform_combine", "Random_combine")
 
-n_matches = 50
+n_matches = 150
 trialNum = as.numeric(Sys.getenv('SLURM_ARRAY_TASK_ID')) # 1-100
 set.seed(trialNum)
 
