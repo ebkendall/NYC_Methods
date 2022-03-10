@@ -43,8 +43,6 @@ Regression discontinuity designs rely on assumptions that state that the potenti
 
 While these approaches can potentially highlight issues with the assumptions inherent to the regression discontinuity design, they do not correct for violations of these assumptions. In this work, we provide valid inference of the effect of police precincts on arrest rates in New York City. By using a novel resampling scheme, our approach allows for violations of the assumption that treatment is as randomized within a window around the cutoff point of the running variable. We exploit a large spatio-temporal data set of crime and arrest data in NYC to find streets that behave similarly to precinct boundaries, but by definition have no precinct effect as they are fully contained within a single police precinct. We use these streets to construct a null distribution that accounts for violations of local randomization assumptions and provides a valid hypothesis test of individual precinct effects as well as an estimate of the overall degree of variation in policing. 
 
-
-
 \section{Policing data in NYC and preliminary analyses}
 \label{sec:data}
 Our analyses draw on two data sources made public  by the NYC police department (NYPD): NYPD Arrest Data and NYPD Complaint Data. Both provide information at the incident level with geolocated, address data for all arrests and all crimes reported to the police in the years 2010-2018. The NYPD is divided into 77 police precincts, each patrolling a particular geographic area of the city. We exclude the precinct corresponding to Central Park, which does not have any residents, leading to 76 precincts in total.  Covariate information is available at a less spatially resolved level, as we have census-tract level covariate information provided by the United States Census Bureau's American Community Survey. Our goal is to use this data to understand whether there is variability in the arresting practices across precincts in New York City, and whether individuals are more or less likely to be arrested depending on which precinct's police force they are exposed to.
@@ -76,7 +74,7 @@ We see that for some borders, all arrests on the border itself are made by one p
 If there is no variation in policing practices across precincts, and under certain causal assumptions that we detail in the following section, we would expect each null hypothesis of no precinct effect at every precinct border to be rejected with probability $\alpha$, where $\alpha$ is our pre-specified type I error. Given that there are 158 borders, we would expect to see roughly $\alpha \times 158$ significant associations and the distribution of p-values across these tests to be roughly uniformly distributed if police precincts do not affect arrest rates. 
 
 % Include these results to illustrate that this naive thing is pervasive
-Figure \ref{fig:NaivePvalue} shows the distribution of p-values when using a buffer width of 500 feet, and the percentage of rejections out of 158 borders that are obtained as a function of the buffer width. We see that 65.3\% of the p-values are less than 0.05 when we use a buffer width of 500 ft, with similar percentages for other buffer widths.
+Suppose a novel binomial test is performed at each of the 158 borders for different window lengths. Buffers with window lengths 200 ft, 300 ft, ..., 800 ft are drawn around each border. Then, we count the arrests made by each of the two precincts within the bounds of the buffer zone and test if there is a difference in the counts of arrests. As mentioned before, if there exists no precinct affect, we should expect that the counts of arrests on either side of the border to be relatively similar and therefore, by chance, we see a significant difference in arrests in $\alpha \times 158$ borders. Under the assumption of ``no precinct effect,'' we know that the histogram of p-values obtained from the 158 separate binomial test should also be relatively uniform. \textcolor{red}{(remake these pictures)} However, Figure \ref{fig:NaivePvalue} shows the distribution of p-values when using a buffer width of 500 feet, and the percentage of rejections out of 158 borders that are obtained as a function of the buffer width. We see that 65.3\% of the p-values are less than 0.05 when we use a buffer width of 500 ft, with similar percentages for other buffer widths.
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.2]{plots/UnadjPVal500.png}
@@ -84,7 +82,12 @@ Figure \ref{fig:NaivePvalue} shows the distribution of p-values when using a buf
         \caption{Distribution of p-values across all 158 borders at buffer of 500 feet (left) along with the percent of rejections as a function of window size around the border (right).}
     \label{fig:NaivePvalue}
 \end{figure}
-There are a number of reasons why this might occur: 1) there truly are vast differences in arresting practices spread across NYC, 2) either the causal assumptions do not hold or the statistical test we use is invalid, or 3) some combination of these two issues. Based on the analysis as it stands, we cannot differentiate between a conclusion that precincts truly affect arrest rates or invalidity of our statistical analyses. We seek to develop a methodology that relies on weaker assumptions than traditional geographic regression discontinuity designs, and therefore provides more reliable inference on the effect of police precincts. 
+There are a number of reasons why this might occur: 1) there truly are vast differences in arresting practices spread across NYC, 2) either the causal assumptions do not hold or the statistical test we use is invalid, or 3) some combination of these two issues.
+
+\subsection{Negative Control (trees in NYC) (emmett)}
+With the heavily skewed p-value distribution, it sparks curiosity into learning more about the structure of these data. In particular, is the fact that arrest locations are only spatially labelled on streets affecting these p-values for the novel binomial test? Therefore, take the 2015 Street Tree Census data set provided by \textit{NYC Open Data}. Shown below \textcolor{red}{(include similar plot of tree locations)} are the locations of trees throughout NYC. We would expect that the difference in tree populations between two bordering precincts to be miniscule. In other words, after performing the same binomial test with the Tree Census data, we should not expect to see a significant difference in tree counts on either side of a precinct border within the different buffers. However, below, we show the same figures as what we got for the arrest data \textcolor{red}{(include figures of naive binomial test for neg control)}. The same skewed trends exist on a data set where we know that there should not exist a difference across a precinct boundary. 
+
+Hence, based on the analysis as it stands, we cannot differentiate between a conclusion that precincts truly affect arrest rates or invalidity of our statistical analyses. Thus, we seek to develop a methodology that relies on weaker assumptions than traditional geographic regression discontinuity designs, and therefore provides more reliable inference on the effect of police precincts. 
 
 \section{Methodology section}
 
@@ -143,6 +146,10 @@ where $d_1$ and $d_0$ capture the degree of the violation of assumption 1. Assum
 \\
 This assumption no longer makes the restrictive assumption that $d_1 = d_2 =0$, but rather assumes that these differences come from an unknown distribution, and that this distribution is the same as at the resampled locations. If this assumption holds and the null streets have similar levels of violations of assumption 1, then the test statistics found at the null streets should approximate the true null distribution $F_0$ and our resampling procedure will lead to valid inference. 
 
+\subsection{Theoretical Implications (emmett)}
+\label{sec:theory}
+\textcolor{red}{add the maths involved using same notation as before}
+
 \subsection{Global test of variation by precinct}
 \label{sec:Global}
 
@@ -153,7 +160,10 @@ So far we have focused on performing a hypothesis test at a border between preci
 \end{align*}
 To perform this hypothesis test, we use a test statistic given by $\widehat{T} = \underset{m}{\text{max}} |\widehat{\theta}_{\delta, m}|$, which is analogous to using a minimum p-value over all hypothesis tests \citep{tippett1931methods}. Larger values of this test statistic provide additional evidence against the null hypothesis. We can use the same resampling procedure described above in order to perform inference using this test statistic. We approximate the distribution of $\widehat{T}$ under the null hypothesis using the empirical distribution of $\widehat{T}^b$ for $b=1, \dots, B$, where $\widehat{T}^b = \underset{m}{\text{max}} |\widehat{\theta}_{\delta, m}^b|$. 
 
-% \section{Simulation study}
+\section{Simulation study (emmett)}
+In order to confirm that the methods described above will allow for correct inference, a simulation study is performed by simulating the point process data on the New York City landscape. The simulation study will involve three ``classes'' of surfaces: (1) \textit{Hot Spots}, (2) \textit{Uniform}, (3) \textit{Random}. Heat maps of the surfaces are shown in Figure \textcolor{red}{(draw the picture)}  where the dark purple areas represent more arrests, and the light areas represent little to no crime. Regardless of the surface, our methodology should be robust to whatever biases are present in the point process data simulated.\\
+\textcolor{red}{describe how the surface is made}\\
+\textcolor{red}{describe how the "counts" are determined by sampling from a poisson process}\\
 
 % Possible simulation studies:
 
@@ -162,6 +172,8 @@ To perform this hypothesis test, we use a test statistic given by $\widehat{T} =
 %     \item Assume that  $\lambda(s)$ follows a Gaussian process with matern (or exponential) covariance matrix and vary the smoothness parameter. Inference should get worse as we decrease the amount of smoothness
 %     \item Assume the surface is flat but has hotspots that are located randomly throughout the city that can mess up inference
 % \end{enumerate}
+
+
 
 \section{Analysis of precinct by precinct arrest rates}
 

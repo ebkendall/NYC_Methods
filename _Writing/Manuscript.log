@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.1.11)  9 MAR 2022 22:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.1.11)  10 MAR 2022 12:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -559,37 +559,37 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
-<plots/ArrestsPrec77.png, id=161, 1003.75pt x 803.0pt>
+<plots/ArrestsPrec77.png, id=174, 1003.75pt x 803.0pt>
 File: plots/ArrestsPrec77.png Graphic file (type png)
 <use plots/ArrestsPrec77.png>
-Package pdftex.def Info: plots/ArrestsPrec77.png  used on input line 55.
+Package pdftex.def Info: plots/ArrestsPrec77.png  used on input line 53.
 (pdftex.def)             Requested size: 200.74644pt x 160.59715pt.
-<plots/ArrestPrec77GoogleMaps.png, id=163, 1003.75pt x 803.0pt>
+<plots/ArrestPrec77GoogleMaps.png, id=176, 1003.75pt x 803.0pt>
 File: plots/ArrestPrec77GoogleMaps.png Graphic file (type png)
 <use plots/ArrestPrec77GoogleMaps.png>
 Package pdftex.def Info: plots/ArrestPrec77GoogleMaps.png  used on input line 5
-5.
+3.
 (pdftex.def)             Requested size: 200.74644pt x 160.59715pt.
-<plots/Buff81and83.png, id=165, 803.0pt x 832.10875pt>
+<plots/Buff81and83.png, id=178, 803.0pt x 832.10875pt>
 File: plots/Buff81and83.png Graphic file (type png)
 <use plots/Buff81and83.png>
-Package pdftex.def Info: plots/Buff81and83.png  used on input line 70.
+Package pdftex.def Info: plots/Buff81and83.png  used on input line 68.
 (pdftex.def)             Requested size: 160.59715pt x 166.4188pt.
-<plots/Buff10and14.png, id=166, 700.6175pt x 797.98125pt>
+<plots/Buff10and14.png, id=179, 700.6175pt x 797.98125pt>
 File: plots/Buff10and14.png Graphic file (type png)
 <use plots/Buff10and14.png>
-Package pdftex.def Info: plots/Buff10and14.png  used on input line 71.
+Package pdftex.def Info: plots/Buff10and14.png  used on input line 69.
 (pdftex.def)             Requested size: 140.12102pt x 159.59341pt.
  [3 <./plots/ArrestsPrec77.png> <./plots/ArrestPrec77GoogleMaps.png>]
-<plots/UnadjPVal500.png, id=178, 1003.75pt x 803.0pt>
+<plots/UnadjPVal500.png, id=190, 1003.75pt x 803.0pt>
 File: plots/UnadjPVal500.png Graphic file (type png)
 <use plots/UnadjPVal500.png>
-Package pdftex.def Info: plots/UnadjPVal500.png  used on input line 81.
+Package pdftex.def Info: plots/UnadjPVal500.png  used on input line 80.
 (pdftex.def)             Requested size: 200.74644pt x 160.59715pt.
-<plots/NumRejectByBuffer.png, id=179, 1003.75pt x 803.0pt>
+<plots/NumRejectByBuffer.png, id=191, 1003.75pt x 803.0pt>
 File: plots/NumRejectByBuffer.png Graphic file (type png)
 <use plots/NumRejectByBuffer.png>
-Package pdftex.def Info: plots/NumRejectByBuffer.png  used on input line 82.
+Package pdftex.def Info: plots/NumRejectByBuffer.png  used on input line 81.
 (pdftex.def)             Requested size: 200.74644pt x 160.59715pt.
 
 
@@ -597,74 +597,83 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [4 <./plots/Buff81and83.png> <./plots/Buff10and14.png>] [5 <./plots/UnadjPVal50
 0.png> <./plots/NumRejectByBuffer.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 109--111
+Underfull \hbox (badness 10000) in paragraph at lines 113--115
 
  []
 
 [6] [7]
-<plots/NullStreetExample83.png, id=228, 863.225pt x 777.90625pt>
+<plots/NullStreetExample83.png, id=238, 863.225pt x 777.90625pt>
 File: plots/NullStreetExample83.png Graphic file (type png)
 <use plots/NullStreetExample83.png>
-Package pdftex.def Info: plots/NullStreetExample83.png  used on input line 134.
+Package pdftex.def Info: plots/NullStreetExample83.png  used on input line 138.
 
 (pdftex.def)             Requested size: 258.9695pt x 233.37367pt.
- [8 <./plots/NullStreetExample83.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 138--144
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 138--144
-
- []
-
-[9] [10]
-<plots/NewMatchesRejections.png, id=252, 1003.75pt x 803.0pt>
-File: plots/NewMatchesRejections.png Graphic file (type png)
-<use plots/NewMatchesRejections.png>
-Package pdftex.def Info: plots/NewMatchesRejections.png  used on input line 190
-.
-(pdftex.def)             Requested size: 203.83417pt x 163.05997pt.
-<plots/HistAdjPVal500.png, id=253, 1003.75pt x 803.0pt>
-File: plots/HistAdjPVal500.png Graphic file (type png)
-<use plots/HistAdjPVal500.png>
-Package pdftex.def Info: plots/HistAdjPVal500.png  used on input line 191.
-(pdftex.def)             Requested size: 203.83417pt x 163.05997pt.
-<plots/GlobalTestMax.png, id=258, 1003.75pt x 803.0pt>
-File: plots/GlobalTestMax.png Graphic file (type png)
-<use plots/GlobalTestMax.png>
-Package pdftex.def Info: plots/GlobalTestMax.png  used on input line 202.
-(pdftex.def)             Requested size: 198.17336pt x 158.54152pt.
-<plots/DistributionGlobalTestStat.png, id=259, 1003.75pt x 803.0pt>
-File: plots/DistributionGlobalTestStat.png Graphic file (type png)
-<use plots/DistributionGlobalTestStat.png>
-Package pdftex.def Info: plots/DistributionGlobalTestStat.png  used on input li
-ne 202.
-(pdftex.def)             Requested size: 198.17336pt x 158.54152pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[11 <./plots/NewMatchesRejections.png> <./plots/HistAdjPVal500.png>]
-<plots/NegControlFinal.png, id=268, 1003.75pt x 803.0pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--148
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--148
+
+ []
+
+[8] [9 <./plots/NullStreetExample83.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 164--167
+
+ []
+
+[10]
+<plots/NewMatchesRejections.png, id=263, 1003.75pt x 803.0pt>
+File: plots/NewMatchesRejections.png Graphic file (type png)
+<use plots/NewMatchesRejections.png>
+Package pdftex.def Info: plots/NewMatchesRejections.png  used on input line 203
+.
+(pdftex.def)             Requested size: 203.83417pt x 163.05997pt.
+<plots/HistAdjPVal500.png, id=264, 1003.75pt x 803.0pt>
+File: plots/HistAdjPVal500.png Graphic file (type png)
+<use plots/HistAdjPVal500.png>
+Package pdftex.def Info: plots/HistAdjPVal500.png  used on input line 204.
+(pdftex.def)             Requested size: 203.83417pt x 163.05997pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<plots/GlobalTestMax.png, id=269, 1003.75pt x 803.0pt>
+File: plots/GlobalTestMax.png Graphic file (type png)
+<use plots/GlobalTestMax.png>
+Package pdftex.def Info: plots/GlobalTestMax.png  used on input line 215.
+(pdftex.def)             Requested size: 198.17336pt x 158.54152pt.
+<plots/DistributionGlobalTestStat.png, id=270, 1003.75pt x 803.0pt>
+File: plots/DistributionGlobalTestStat.png Graphic file (type png)
+<use plots/DistributionGlobalTestStat.png>
+Package pdftex.def Info: plots/DistributionGlobalTestStat.png  used on input li
+ne 215.
+(pdftex.def)             Requested size: 198.17336pt x 158.54152pt.
+[11] [12 <./plots/NewMatchesRejections.png> <./plots/HistAdjPVal500.png> <./plo
+ts/GlobalTestMax.png> <./plots/DistributionGlobalTestStat.png>]
+<plots/NegControlFinal.png, id=286, 1003.75pt x 803.0pt>
 File: plots/NegControlFinal.png Graphic file (type png)
 <use plots/NegControlFinal.png>
-Package pdftex.def Info: plots/NegControlFinal.png  used on input line 217.
+Package pdftex.def Info: plots/NegControlFinal.png  used on input line 230.
 (pdftex.def)             Requested size: 250.93689pt x 200.74951pt.
- [12 <./plots/GlobalTestMax.png> <./plots/DistributionGlobalTestStat.png>]
-(./Manuscript.bbl [13 <./plots/NegControlFinal.png>] [14]) [15]
-(./Manuscript.aux)
+ [13 <./plots/NegControlFinal.png>] (./Manuscript.bbl [14] [15]) [16] (./Manusc
+ript.aux)
 Package rerunfilecheck Info: File `Manuscript.out' has not changed.
-(rerunfilecheck)             Checksum: 10FD1ECEE69CEEB09BDBBEA2A45C3A9C;2908.
+(rerunfilecheck)             Checksum: BC0D12B7C4721F89D0CEFECB57DD6271;3609.
  ) 
 Here is how much of TeX's memory you used:
- 12948 strings out of 478994
- 191348 string characters out of 5858184
- 509914 words of memory out of 5000000
- 30166 multiletter control sequences out of 15000+600000
+ 12956 strings out of 478994
+ 191447 string characters out of 5858184
+ 510977 words of memory out of 5000000
+ 30170 multiletter control sequences out of 15000+600000
  415039 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,10n,88p,2266b,479s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 83i,10n,88p,2266b,489s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
@@ -680,10 +689,10 @@ live/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
 ive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texliv
 e/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive
 /2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Manuscript.pdf (15 pages, 1587826 bytes).
+Output written on Manuscript.pdf (16 pages, 1591520 bytes).
 PDF statistics:
- 357 PDF objects out of 1000 (max. 8388607)
- 298 compressed objects within 3 object streams
- 71 named destinations out of 1000 (max. 500000)
- 165 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 376 PDF objects out of 1000 (max. 8388607)
+ 315 compressed objects within 4 object streams
+ 75 named destinations out of 1000 (max. 500000)
+ 189 words of extra memory for PDF output out of 10000 (max. 10000000)
 
