@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2021)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Manuscript.aux
+The style file: authordate1.bst
+Database file #1: References.bib
+Warning--empty journal in ba2019effect
+Warning--empty journal in beck2020effects
+You've used 32 entries,
+            2441 wiz_defined-function locations,
+            765 strings with 10216 characters,
+and the built_in function-call counts, 12908 in all, are:
+= -- 1282
+> -- 445
+< -- 112
++ -- 147
+- -- 127
+* -- 1074
+:= -- 2095
+add.period$ -- 126
+call.type$ -- 32
+change.case$ -- 202
+chr.to.int$ -- 32
+cite$ -- 34
+duplicate$ -- 502
+empty$ -- 931
+format.name$ -- 169
+if$ -- 2617
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 34
+newline$ -- 161
+num.names$ -- 96
+pop$ -- 194
+preamble$ -- 1
+purify$ -- 234
+quote$ -- 0
+skip$ -- 507
+stack$ -- 0
+substring$ -- 873
+swap$ -- 112
+text.length$ -- 4
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 250
+warning$ -- 2
+while$ -- 108
+width$ -- 0
+write$ -- 404
+(There were 2 warnings)

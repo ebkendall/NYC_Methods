@@ -1,0 +1,193 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citename{Abadie {\em et~al.}, }2010]{abadie2010synthetic}
+Abadie, Alberto, Diamond, Alexis, \& Hainmueller, Jens. 2010.
+\newblock Synthetic control methods for comparative case studies: Estimating
+  the effect of California’s tobacco control program.
+\newblock {\em Journal of the American statistical Association}, {\bf
+  105}(490), 493--505.
+
+\bibitem[\protect\citename{Antonelli \& Beck, }2020]{antonelli2020estimating}
+Antonelli, Joseph, \& Beck, Brenden. 2020.
+\newblock Estimating heterogeneous causal effects in time series settings with
+  staggered adoption: An application to neighborhood policing.
+\newblock {\em arXiv preprint arXiv:2006.07681}.
+
+\bibitem[\protect\citename{Ashenfelter \& Card, }1984]{ashenfelter1984using}
+Ashenfelter, Orley~C, \& Card, David. 1984.
+\newblock {\em Using the longitudinal structure of earnings to estimate the
+  effect of training programs}.
+
+\bibitem[\protect\citename{Ba \& Rivera, }2019]{ba2019effect}
+Ba, Bocar~A, \& Rivera, Roman~G. 2019.
+\newblock The effect of police oversight on crime and allegations of
+  misconduct: Evidence from chicago.
+
+\bibitem[\protect\citename{Beck {\em et~al.}, }2020]{beck2020effects}
+Beck, Brenden, Antonelli, Joseph, \& Pi{\~n}eros, Gabriela. 2020.
+\newblock The Effects of New York City’s Neighborhood Policing Program on
+  Crime, Misdemeanor Arrests, and Racial Disparities.
+
+\bibitem[\protect\citename{Bell, }2020]{bell2020anti}
+Bell, Monica~C. 2020.
+\newblock Anti-segregation policing.
+\newblock {\em NYUL Rev.}, {\bf 95}, 650.
+
+\bibitem[\protect\citename{Bernal {\em et~al.}, }2017]{bernal2017interrupted}
+Bernal, James~Lopez, Cummins, Steven, \& Gasparrini, Antonio. 2017.
+\newblock Interrupted time series regression for the evaluation of public
+  health interventions: a tutorial.
+\newblock {\em International journal of epidemiology}, {\bf 46}(1), 348--355.
+
+\bibitem[\protect\citename{Cattaneo {\em et~al.}, }2017]{cattaneo2017comparing}
+Cattaneo, Matias~D, Titiunik, Rocio, \& Vazquez-Bare, Gonzalo. 2017.
+\newblock Comparing inference approaches for RD designs: A reexamination of the
+  effect of head start on child mortality.
+\newblock {\em Journal of Policy Analysis and Management}, {\bf 36}(3),
+  643--681.
+
+\bibitem[\protect\citename{Cattaneo {\em et~al.},
+  }2019]{cattaneo2019regression}
+Cattaneo, Matias~D, Titiunik, Roc{\i}o, Vazquez-Bare, Gonzalo, {\em et~al.}
+  2019.
+\newblock The regression discontinuity design.
+\newblock {\em Handbook of Research Methods in Political Science and
+  International Relations, eds. L. Curini and RJ Franzese, Sage Publications}.
+
+\bibitem[\protect\citename{Cook {\em et~al.}, }1979]{cook1979quasi}
+Cook, Thomas~D, Campbell, Donald~Thomas, \& Day, Arles. 1979.
+\newblock {\em Quasi-experimentation: Design \& analysis issues for field
+  settings}.
+\newblock  Vol. 351.
+\newblock Houghton Mifflin Boston.
+
+\bibitem[\protect\citename{Daley \& Vere-Jones, }2003]{daley2003introduction}
+Daley, Daryl~J, \& Vere-Jones, David. 2003.
+\newblock {\em An introduction to the theory of point processes: volume I:
+  elementary theory and methods}.
+\newblock Springer.
+
+\bibitem[\protect\citename{De~Paola {\em et~al.}, }2013]{de2013deterrent}
+De~Paola, Maria, Scoppa, Vincenzo, \& Falcone, Mariatiziana. 2013.
+\newblock The deterrent effects of the penalty points system for driving
+  offences: a regression discontinuity approach.
+\newblock {\em Empirical Economics}, {\bf 45}(2), 965--985.
+
+\bibitem[\protect\citename{Harvey, }2020]{harvey2020applying}
+Harvey, Anna. 2020.
+\newblock Applying regression discontinuity designs to American political
+  development.
+\newblock {\em Public Choice}, {\bf 185}(3), 377--399.
+
+\bibitem[\protect\citename{Hassell, }2007]{hassell2007variation}
+Hassell, Kimberly~D. 2007.
+\newblock Variation in Police Patrol Practices-The Precint as a
+  Sub-Organizational Level of Analysis.
+\newblock {\em Policing: Int'l J. Police Strat. \& Mgmt.}, {\bf 30}, 257.
+
+\bibitem[\protect\citename{Imbens \& Lemieux, }2008]{imbens2008regression}
+Imbens, Guido~W, \& Lemieux, Thomas. 2008.
+\newblock Regression discontinuity designs: A guide to practice.
+\newblock {\em Journal of econometrics}, {\bf 142}(2), 615--635.
+
+\bibitem[\protect\citename{Kahle \& Wickham, }2013]{ggmap2013}
+Kahle, David, \& Wickham, Hadley. 2013.
+\newblock ggmap: Spatial Visualization with ggplot2.
+\newblock {\em The R Journal}, {\bf 5}(1), 144--161.
+
+\bibitem[\protect\citename{Keele {\em et~al.}, }2015]{keele2015enhancing}
+Keele, Luke, Titiunik, Rocio, \& Zubizarreta, Jos{\'e}~R. 2015.
+\newblock Enhancing a geographic regression discontinuity design through
+  matching to estimate the effect of ballot initiatives on voter turnout.
+\newblock {\em Journal of the Royal Statistical Society. Series A (Statistics
+  in Society)},  223--239.
+
+\bibitem[\protect\citename{Keele \& Titiunik, }2015]{keele2015geographic}
+Keele, Luke~J, \& Titiunik, Rocio. 2015.
+\newblock Geographic boundaries as regression discontinuities.
+\newblock {\em Political Analysis}, {\bf 23}(1), 127--155.
+
+\bibitem[\protect\citename{Klinger, }1997]{klinger1997negotiating}
+Klinger, David~A. 1997.
+\newblock Negotiating order in patrol work: An ecological theory of police
+  response to deviance.
+\newblock {\em Criminology}, {\bf 35}(2), 277--306.
+
+\bibitem[\protect\citename{Lechner {\em et~al.}, }2011]{lechner2011estimation}
+Lechner, Michael, {\em et~al.} 2011.
+\newblock {\em The estimation of causal effects by difference-in-difference
+  methods}.
+\newblock Now.
+
+\bibitem[\protect\citename{Lee {\em et~al.}, }2004]{lee2004voters}
+Lee, David~S, Moretti, Enrico, \& Butler, Matthew~J. 2004.
+\newblock Do voters affect or elect policies? Evidence from the US House.
+\newblock {\em The Quarterly Journal of Economics}, {\bf 119}(3), 807--859.
+
+\bibitem[\protect\citename{Lemieux \& Milligan, }2008]{lemieux2008incentive}
+Lemieux, Thomas, \& Milligan, Kevin. 2008.
+\newblock Incentive effects of social assistance: A regression discontinuity
+  approach.
+\newblock {\em Journal of Econometrics}, {\bf 142}(2), 807--828.
+
+\bibitem[\protect\citename{MacDonald {\em et~al.}, }2016]{macdonald2016effect}
+MacDonald, John~M, Klick, Jonathan, \& Grunwald, Ben. 2016.
+\newblock The effect of private police on crime: evidence from a geographic
+  regression discontinuity design.
+\newblock {\em Journal of the Royal Statistical Society. Series A (Statistics
+  in Society)},  831--846.
+
+\bibitem[\protect\citename{Matsudaira, }2008]{matsudaira2008mandatory}
+Matsudaira, Jordan~D. 2008.
+\newblock Mandatory summer school and student achievement.
+\newblock {\em Journal of Econometrics}, {\bf 142}(2), 829--850.
+
+\bibitem[\protect\citename{Mattei \& Mealli, }2017]{mattei2017regression}
+Mattei, Alessandra, \& Mealli, Fabrizia. 2017.
+\newblock Regression discontinuity designs as local randomized experiments.
+\newblock {\em Observational Studies}, {\bf 3}(2), 156--173.
+
+\bibitem[\protect\citename{McCrary, }2008]{mccrary2008manipulation}
+McCrary, Justin. 2008.
+\newblock Manipulation of the running variable in the regression discontinuity
+  design: A density test.
+\newblock {\em Journal of econometrics}, {\bf 142}(2), 698--714.
+
+\bibitem[\protect\citename{Puelz {\em et~al.}, }2019]{puelz2019graph}
+Puelz, David, Basse, Guillaume, Feller, Avi, \& Toulis, Panos. 2019.
+\newblock A graph-theoretic approach to randomization tests of causal effects
+  under general interference.
+\newblock {\em arXiv preprint arXiv:1910.10862}.
+
+\bibitem[\protect\citename{Rischard {\em et~al.}, }2020]{rischard2020school}
+Rischard, Maxime, Branson, Zach, Miratrix, Luke, \& Bornn, Luke. 2020.
+\newblock Do School Districts Affect NYC House Prices? Identifying Border
+  Differences Using a Bayesian Nonparametric Approach to Geographic Regression
+  Discontinuity Designs.
+\newblock {\em Journal of the American Statistical Association},  1--13.
+
+\bibitem[\protect\citename{Rubin, }1974]{rubin1974estimating}
+Rubin, Donald~B. 1974.
+\newblock Estimating causal effects of treatments in randomized and
+  nonrandomized studies.
+\newblock {\em Journal of educational Psychology}, {\bf 66}(5), 688.
+
+\bibitem[\protect\citename{Thistlethwaite \& Campbell,
+  }1960]{thistlethwaite1960regression}
+Thistlethwaite, Donald~L, \& Campbell, Donald~T. 1960.
+\newblock Regression-discontinuity analysis: An alternative to the ex post
+  facto experiment.
+\newblock {\em Journal of Educational psychology}, {\bf 51}(6), 309.
+
+\bibitem[\protect\citename{Tippett {\em et~al.}, }1931]{tippett1931methods}
+Tippett, Leonard Henry~Caleb, {\em et~al.} 1931.
+\newblock The methods of statistics.
+\newblock {\em The Methods of Statistics.}
+
+\bibitem[\protect\citename{Trochim, }1990]{trochim1990regression}
+Trochim, William~MK. 1990.
+\newblock The regression-discontinuity design.
+\newblock {\em Research methodology: Strengthening causal interpretations of
+  nonexperimental data},  119--130.
+
+\end{thebibliography}
